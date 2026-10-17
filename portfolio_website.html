@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dedy Sandika Purnama Inda | Cost Control & Data Analytics</title>
+    <meta name="description" content="Portfolio of Dedy Sandika Purnama Inda - Cost Control, Data Analytics, and Mining Operations Professional.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            900: '#070B14',
+                            800: '#0B1221',
+                            700: '#111C30',
+                        },
+                        charcoal: '#1A2333',
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                        },
+                        emerald: {
+                            400: '#34d399',
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #070B14;
+            color: #f8fafc;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B1221; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4; 
+        }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(17, 28, 48, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-card {
+            background: linear-gradient(145deg, #111C30, #0B1221);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Modal Transitions */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 300ms, transform 300ms;
+        }
+        .modal-exit {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .modal-exit-active {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 300ms, transform 300ms;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-white">
+
+    <nav class="fixed w-full z-50 glass border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-8 h-8 rounded bg-cyan-500 flex items-center justify-center font-bold text-navy-900">
+                        DS
+                    </div>
+                    <span class="font-bold text-xl tracking-tight">Dedy Sandika</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors">About</a>
+                    <a href="#experience" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors">Experience</a>
+                    <a href="#projects" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors">Projects</a>
+                    <a href="#skills" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors">Skills</a>
+                    <a href="CV_Dedy Sandika_2026.pdf" target="_blank" class="px-5 py-2.5 rounded-lg text-sm font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500 hover:text-navy-900 transition-all shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                        <i class="fa-solid fa-download mr-2"></i> Download CV
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5 absolute w-full">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-cyan-400 hover:bg-white/5">About</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-cyan-400 hover:bg-white/5">Experience</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-cyan-400 hover:bg-white/5">Projects</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-cyan-400 hover:bg-white/5">Skills</a>
+                <a href="CV_Dedy Sandika_2026.pdf" target="_blank" class="block px-3 py-2 mt-4 rounded-md text-base font-medium text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 text-center">
+                    <i class="fa-solid fa-download mr-2"></i> Download CV
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] -z-10 mix-blend-screen"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] -z-10 mix-blend-screen"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold tracking-wide uppercase">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                        </span>
+                        Available for Opportunities
+                    </div>
+                    
+                    <div>
+                        <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-white mb-4">
+                            Dedy Sandika<br/>
+                            <span class="text-gradient">Purnama Inda</span>
+                        </h1>
+                        <h2 class="text-xl lg:text-2xl font-medium text-gray-400">
+                            Cost Control | Data Analytics | Mining Operations
+                        </h2>
+                    </div>
+                    
+                    <p class="text-lg text-gray-400 max-w-xl leading-relaxed">
+                        "Turning Operational Data into Actionable Insights and Cost Efficiency."
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 py-4 border-y border-white/10">
+                        <div class="flex items-center gap-3 pr-6 border-r border-white/10">
+                            <div class="text-3xl text-cyan-400"><i class="fa-solid fa-briefcase"></i></div>
+                            <div>
+                                <div class="text-xl font-bold text-white">3+ Years</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wider">Professional Exp</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 pr-6 border-r border-white/10 hidden sm:flex">
+                            <div class="text-3xl text-emerald-400"><i class="fa-solid fa-chart-line"></i></div>
+                            <div>
+                                <div class="text-sm font-bold text-white">Cost Control &</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wider">Budgeting</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="text-3xl text-amber-400"><i class="fa-solid fa-database"></i></div>
+                            <div>
+                                <div class="text-sm font-bold text-white">Operational</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wider">Data Analytics</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#projects" class="px-6 py-3 rounded-lg font-medium bg-cyan-500 text-navy-900 hover:bg-cyan-400 transition-colors shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+                            View My Projects
+                        </a>
+                        <a href="#experience" class="px-6 py-3 rounded-lg font-medium bg-white/5 text-white hover:bg-white/10 transition-colors border border-white/10">
+                            Explore Experience
+                        </a>
+                        <a href="#contact" class="px-6 py-3 rounded-lg font-medium text-gray-300 hover:text-cyan-400 transition-colors">
+                            Contact Me <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-navy-900 to-transparent z-10"></div>
+                    <div class="glass-card rounded-xl p-6 border border-white/10 shadow-2xl relative">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-sm font-semibold text-gray-300">Operational Overview</h3>
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-navy-800 p-4 rounded-lg border border-white/5">
+                                <div class="text-xs text-gray-500 mb-1">EBITDA Status</div>
+                                <div class="text-xl font-bold text-emerald-400">+12.4%</div>
+                            </div>
+                            <div class="bg-navy-800 p-4 rounded-lg border border-white/5">
+                                <div class="text-xs text-gray-500 mb-1">Cost Variance</div>
+                                <div class="text-xl font-bold text-cyan-400">Under Budget</div>
+                            </div>
+                        </div>
+                        <div class="h-32 bg-navy-800 rounded-lg border border-white/5 relative overflow-hidden flex items-end px-2 gap-1 pb-2">
+                            <!-- Mock Chart Bars -->
+                            <div class="w-full bg-cyan-500/20 rounded-t h-[40%] hover:bg-cyan-500/40 transition-all cursor-pointer"></div>
+                            <div class="w-full bg-cyan-500/40 rounded-t h-[60%] hover:bg-cyan-500/60 transition-all cursor-pointer"></div>
+                            <div class="w-full bg-cyan-500/30 rounded-t h-[45%] hover:bg-cyan-500/50 transition-all cursor-pointer"></div>
+                            <div class="w-full bg-cyan-500/80 rounded-t h-[80%] hover:bg-cyan-500 transition-all cursor-pointer"></div>
+                            <div class="w-full bg-amber-400/60 rounded-t h-[95%] hover:bg-amber-400 transition-all cursor-pointer relative group">
+                                <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-charcoal text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-20 shadow-lg border border-white/10">Deviasi</div>
+                            </div>
+                            <div class="w-full bg-cyan-500/50 rounded-t h-[55%] hover:bg-cyan-500/70 transition-all cursor-pointer"></div>
+                            <div class="w-full bg-cyan-500/70 rounded-t h-[75%] hover:bg-cyan-500/90 transition-all cursor-pointer"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-charcoal border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-5">
+                    <div class="sticky top-28">
+                        <h2 class="text-sm font-bold text-cyan-400 tracking-widest uppercase mb-2">About Me</h2>
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">Bridging the gap between Operations and Finance.</h3>
+                        <div class="w-20 h-1 bg-cyan-500 rounded mb-8"></div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-7 space-y-6 text-gray-400 leading-relaxed text-lg">
+                    <p>
+                        I am a Cost Control and Data Administration professional with experience across mining operations, manufacturing, and logistics. My expertise includes budgeting, cost variance analysis, EOM forecasting, operational data validation, and dashboard development.
+                    </p>
+                    <p>
+                        I am passionate about transforming complex operational data into clear, actionable insights through data visualization, structured reporting, and continuous improvement initiatives. My focus is to improve data accuracy, strengthen operational visibility, and support better business decisions.
+                    </p>
+                    
+                    <div class="pt-6">
+                        <h4 class="text-white font-semibold mb-4 text-base">Core Competencies:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-navy-900 border border-white/10 rounded-full text-sm">Cost Control</span>
+                            <span class="px-3 py-1 bg-navy-900 border border-white/10 rounded-full text-sm">Budgeting</span>
+                            <span class="px-3 py-1 bg-navy-900 border border-white/10 rounded-full text-sm">Forecasting</span>
+                            <span class="px-3 py-1 bg-navy-900 border border-white/10 rounded-full text-sm">Cost Variance Analysis</span>
+                            <span class="px-3 py-1 bg-navy-900 border border-white/10 rounded-full text-sm">OPEX & CAPEX</span>
+                            <span class="px-3 py-1 bg-navy-900 border border-white/10 rounded-full text-sm">EOM Simulation</span>
+                            <span class="px-3 py-1 bg-navy-900 border border-white/10 rounded-full text-sm">EBITDA Support</span>
+                            <span class="px-3 py-1 bg-navy-900 border border-white/10 rounded-full text-sm text-cyan-400">Data Validation</span>
+                            <span class="px-3 py-1 bg-navy-900 border border-white/10 rounded-full text-sm text-cyan-400">Dashboard Development</span>
+                            <span class="px-3 py-1 bg-navy-900 border border-white/10 rounded-full text-sm text-cyan-400">Operational Reporting</span>
+                            <span class="px-3 py-1 bg-emerald-900/30 border border-emerald-500/20 rounded-full text-sm text-emerald-400">Process Improvement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-cyan-400 tracking-widest uppercase mb-2">Career Journey</h2>
+                <h3 class="text-3xl font-bold text-white">Professional Experience</h3>
+            </div>
+
+            <div class="relative border-l-2 border-navy-700 ml-3 md:ml-0 md:border-l-0 md:space-y-12 space-y-8">
+                <!-- Central line for desktop -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-navy-700 -translate-x-1/2"></div>
+
+                <!-- Job 1 -->
+                <div class="relative flex flex-col md:flex-row items-center md:justify-between w-full group">
+                    <div class="hidden md:block w-5 h-5 rounded-full bg-navy-900 border-4 border-cyan-500 absolute left-1/2 -translate-x-1/2 z-10 shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+                    
+                    <div class="md:w-5/12 w-full pl-6 md:pl-0 md:text-right md:pr-10 mb-2 md:mb-0">
+                        <div class="text-cyan-400 font-semibold text-lg">PT. Bina Sarana Sukses (ADS Group)</div>
+                        <div class="text-gray-400 text-sm">Juli 2022 – Sekarang</div>
+                    </div>
+                    
+                    <div class="md:w-5/12 w-full pl-6 md:pl-10 relative">
+                        <div class="md:hidden absolute -left-[29px] top-1.5 w-4 h-4 rounded-full bg-navy-900 border-2 border-cyan-500 z-10 shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+                        <div class="glass-card p-6 rounded-xl relative">
+                            <h4 class="text-xl font-bold text-white mb-3">Cost Control & Pengawas Data Administrasi</h4>
+                            <ul class="text-gray-400 text-sm space-y-2 list-disc pl-4 marker:text-cyan-500">
+                                <li>Menyusun anggaran bulanan dan tahunan operasional site.</li>
+                                <li>Menganalisis cost over/under mingguan dan memberikan rekomendasi pengendalian biaya.</li>
+                                <li>Memantau realisasi biaya operasional harian terhadap anggaran.</li>
+                                <li>Membuat simulasi End of Month untuk memproyeksikan deviasi biaya dan mendukung pencapaian EBITDA.</li>
+                                <li>Mengelola roster admin site dan perencanaan kebutuhan SDM administrasi.</li>
+                                <li>Memantau dan memvalidasi data operasional secara real-time.</li>
+                                <li>Memastikan proses administrasi dan pelaporan berjalan akurat.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="relative flex flex-col md:flex-row-reverse items-center md:justify-between w-full group">
+                    <div class="hidden md:block w-4 h-4 rounded-full bg-navy-800 border-2 border-gray-500 group-hover:border-cyan-400 absolute left-1/2 -translate-x-1/2 z-10 transition-colors"></div>
+                    
+                    <div class="md:w-5/12 w-full pl-6 md:pl-0 md:text-left md:pl-10 mb-2 md:mb-0">
+                        <div class="text-cyan-400 font-semibold text-lg">PT. Cakra Alam Persda (ADS Group)</div>
+                        <div class="text-gray-400 text-sm">Agustus 2023 – Juli 2024</div>
+                    </div>
+                    
+                    <div class="md:w-5/12 w-full pl-6 md:pl-0 md:pr-10 relative">
+                        <div class="md:hidden absolute -left-[29px] top-1.5 w-4 h-4 rounded-full bg-navy-800 border-2 border-gray-500 z-10"></div>
+                        <div class="glass-card p-6 rounded-xl relative">
+                            <h4 class="text-xl font-bold text-white mb-3">Cost Control Manufaktur</h4>
+                            <ul class="text-gray-400 text-sm space-y-2 list-disc pl-4 marker:text-cyan-500">
+                                <li>Menyusun anggaran tahunan operasional manufaktur.</li>
+                                <li>Merencanakan dan memantau anggaran OPEX dan CAPEX.</li>
+                                <li>Menganalisis realisasi biaya terhadap anggaran yang disetujui.</li>
+                                <li>Mengidentifikasi deviasi biaya dan memberikan rekomendasi efisiensi.</li>
+                                <li>Menyusun Harga Pokok Produksi (HPP).</li>
+                                <li>Menyusun dan mengevaluasi forecast biaya operasional.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="relative flex flex-col md:flex-row items-center md:justify-between w-full group">
+                    <div class="hidden md:block w-4 h-4 rounded-full bg-navy-800 border-2 border-gray-500 group-hover:border-cyan-400 absolute left-1/2 -translate-x-1/2 z-10 transition-colors"></div>
+                    
+                    <div class="md:w-5/12 w-full pl-6 md:pl-0 md:text-right md:pr-10 mb-2 md:mb-0">
+                        <div class="text-cyan-400 font-semibold text-lg">PT. Shopee Express</div>
+                        <div class="text-gray-400 text-sm">Januari 2022 – Juli 2022</div>
+                    </div>
+                    
+                    <div class="md:w-5/12 w-full pl-6 md:pl-10 relative">
+                        <div class="md:hidden absolute -left-[29px] top-1.5 w-4 h-4 rounded-full bg-navy-800 border-2 border-gray-500 z-10"></div>
+                        <div class="glass-card p-6 rounded-xl relative">
+                            <h4 class="text-xl font-bold text-white mb-3">Admin & Analyst</h4>
+                            <ul class="text-gray-400 text-sm space-y-2 list-disc pl-4 marker:text-cyan-500">
+                                <li>Merekap absensi karyawan.</li>
+                                <li>Memantau kinerja operasional tim lapangan.</li>
+                                <li>Menindaklanjuti permasalahan operasional kepada Head Office.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="relative flex flex-col md:flex-row-reverse items-center md:justify-between w-full group">
+                    <div class="hidden md:block w-4 h-4 rounded-full bg-navy-800 border-2 border-gray-500 group-hover:border-cyan-400 absolute left-1/2 -translate-x-1/2 z-10 transition-colors"></div>
+                    
+                    <div class="md:w-5/12 w-full pl-6 md:pl-0 md:text-left md:pl-10 mb-2 md:mb-0">
+                        <div class="text-cyan-400 font-semibold text-lg">PT. Primas Mas Indonesia</div>
+                        <div class="text-gray-400 text-sm">November 2020 – Juli 2021</div>
+                    </div>
+                    
+                    <div class="md:w-5/12 w-full pl-6 md:pl-0 md:pr-10 relative">
+                        <div class="md:hidden absolute -left-[29px] top-1.5 w-4 h-4 rounded-full bg-navy-800 border-2 border-gray-500 z-10"></div>
+                        <div class="glass-card p-6 rounded-xl relative">
+                            <h4 class="text-xl font-bold text-white mb-3">Admin Gudang</h4>
+                            <ul class="text-gray-400 text-sm space-y-2 list-disc pl-4 marker:text-cyan-500">
+                                <li>Membuat surat ritase dan surat jalan.</li>
+                                <li>Mengontrol kartu stok dan stok fisik.</li>
+                                <li>Mengelola data barang masuk dan keluar.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Job 5 -->
+                <div class="relative flex flex-col md:flex-row items-center md:justify-between w-full group">
+                    <div class="hidden md:block w-4 h-4 rounded-full bg-navy-800 border-2 border-gray-500 group-hover:border-cyan-400 absolute left-1/2 -translate-x-1/2 z-10 transition-colors"></div>
+                    
+                    <div class="md:w-5/12 w-full pl-6 md:pl-0 md:text-right md:pr-10 mb-2 md:mb-0">
+                        <div class="text-cyan-400 font-semibold text-lg">PT. Jabaku Karaba</div>
+                        <div class="text-gray-400 text-sm">Maret 2018 – September 2018</div>
+                    </div>
+                    
+                    <div class="md:w-5/12 w-full pl-6 md:pl-10 relative">
+                        <div class="md:hidden absolute -left-[29px] top-1.5 w-4 h-4 rounded-full bg-navy-800 border-2 border-gray-500 z-10"></div>
+                        <div class="glass-card p-6 rounded-xl relative">
+                            <h4 class="text-xl font-bold text-white mb-3">Admin</h4>
+                            <ul class="text-gray-400 text-sm space-y-2 list-disc pl-4 marker:text-cyan-500">
+                                <li>Menyusun laporan operasional harian dan bulanan.</li>
+                                <li>Merekap absensi dan ritase operasional.</li>
+                                <li>Mengelola pembayaran upah tenaga kerja harian.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-charcoal border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="text-sm font-bold text-cyan-400 tracking-widest uppercase mb-2">Featured Work</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Continuous Improvement</h3>
+                </div>
+                <p class="text-gray-400 max-w-md text-sm md:text-right">
+                    Operational data dashboards designed to identify problems, develop data-driven solutions, and support decision making.
+                </p>
+            </div>
+
+            <!-- Project Grid Container populated by JS -->
+            <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-cyan-400 tracking-widest uppercase mb-2">Expertise</h2>
+                <h3 class="text-3xl font-bold text-white">Skills & Tools</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <!-- Cost Control Block -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-6">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-6">Cost Control</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">Budget Planning</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">Cost Variance Analysis</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">OPEX & CAPEX Monitoring</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">Cost Forecasting</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">EOM Simulation</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">HPP</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">EBITDA Support</span></div>
+                    </div>
+                </div>
+
+                <!-- Data Analytics Block -->
+                <div class="glass-card p-8 rounded-2xl relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-cyan-500/5 rounded-full blur-[30px]"></div>
+                    <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl mb-6 relative z-10">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-6 relative z-10">Data Analytics</h4>
+                    <div class="flex flex-wrap gap-2 relative z-10">
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-gray-300">Microsoft Excel</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-gray-300">Pivot Table</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-gray-300">Lookup</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-gray-300">IF / SUMIF/S</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-gray-300">QUERY / UNIQUE</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-gray-300">Array Formula</span>
+                        <span class="px-3 py-1 bg-white/5 border border-white/10 rounded text-sm text-gray-300">Google Sheets</span>
+                        <span class="px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded text-sm text-cyan-400">Dashboard Development</span>
+                        <span class="px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded text-sm text-cyan-400">Data Validation</span>
+                    </div>
+                </div>
+
+                <!-- Leadership Block -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl mb-6">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-6">Leadership & Admin</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">Team Coordination</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">Workforce Planning</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">Roster Management</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">Operational Reporting</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">Problem Solving</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">Communication</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-500 text-xs"></i><span class="text-gray-300">Time Management</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Block -->
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-white">Education</h3>
+                </div>
+                <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 border-l-4 border-l-cyan-500">
+                    <div>
+                        <h4 class="text-xl font-bold text-white">Universitas Muhammadiyah Palembang</h4>
+                        <div class="text-cyan-400 font-medium">S1 Akuntansi</div>
+                    </div>
+                    <div class="md:text-right">
+                        <div class="text-gray-400 text-sm mb-1"><i class="fa-regular fa-calendar mr-2"></i>September 2013 – Agustus 2017</div>
+                        <div class="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-md font-bold text-sm">IPK: 3.27</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-charcoal relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Let's Build Better Decisions Through Data.</h2>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                Open to opportunities in Cost Control, Budgeting, Data Analytics, and Mining Operations.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+                <a href="mailto:dedysandika@gmail.com" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold bg-white text-navy-900 hover:bg-gray-200 transition-colors flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-envelope text-xl"></i> dedysandika@gmail.com
+                </a>
+                <a href="https://wa.me/6281367453330" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold bg-emerald-500 text-white hover:bg-emerald-600 transition-colors flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(52,211,153,0.3)]">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> +62 813-6745-3330
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center gap-2 text-gray-500">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Palembang, Indonesia</span>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer class="border-t border-white/5 py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Dedy Sandika Purnama Inda. All rights reserved.</p>
+        <p class="mt-2 text-xs">Portfolio theme: Mining Intelligence & Cost Control.</p>
+    </footer>
+
+    <!-- Case Study Modal (Hidden by default) -->
+    <div id="case-study-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-navy-900/90 backdrop-blur-sm" onclick="closeModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-charcoal border border-white/10 rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300" id="modal-panel">
+            
+            <!-- Sticky Header -->
+            <div class="sticky top-0 bg-charcoal/95 backdrop-blur z-20 border-b border-white/10 px-6 py-4 flex justify-between items-center">
+                <div>
+                    <span id="modal-category" class="text-xs font-bold tracking-wider text-cyan-500 uppercase">Category</span>
+                    <h3 id="modal-title" class="text-xl font-bold text-white mt-1">Project Title</h3>
+                </div>
+                <button onclick="closeModal()" class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 md:p-8">
+                <!-- Thumbnail Placeholder (Instructed to allow for screenshot replacement) -->
+                <div class="w-full h-64 sm:h-80 md:h-[400px] rounded-xl bg-navy-800 border border-white/5 mb-8 relative overflow-hidden group flex items-center justify-center">
+                    <img id="modal-image" src="" alt="Dashboard Screenshot" class="absolute inset-0 w-full h-full object-cover object-top z-0" onerror="this.onerror=null;this.src='https://placehold.co/1000x600/0B1221/06b6d4?text=Dashboard+Preview'">
+                    <div class="text-center z-10 p-4 bg-navy-900/60 backdrop-blur-sm rounded-xl border border-white/10">
+                        <i class="fa-solid fa-image text-4xl text-gray-400 mb-2"></i>
+                        <p class="text-gray-300 text-sm">Dashboard Screenshot Area</p>
+                        <p class="text-xs text-gray-400 mt-1">Sistem menampilkan fallback jika gambar belum dirender platform.</p>
+                        <span class="inline-block mt-3 text-[10px] uppercase tracking-widest text-amber-500 bg-amber-500/10 px-2 py-1 rounded border border-amber-500/20">Illustrative Data — Not Actual Company Data</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Left Column (Main Content) -->
+                    <div class="md:col-span-2 space-y-8">
+                        
+                        <section>
+                            <h4 class="text-lg font-bold text-white border-b border-white/10 pb-2 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-bullseye text-cyan-400"></i> Project Overview
+                            </h4>
+                            <p id="modal-overview" class="text-gray-300 text-sm leading-relaxed"></p>
+                        </section>
+
+                        <section>
+                            <h4 class="text-lg font-bold text-white border-b border-white/10 pb-2 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation text-amber-400"></i> Business Problem
+                            </h4>
+                            <p id="modal-problem" class="text-gray-300 text-sm leading-relaxed"></p>
+                        </section>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <section class="bg-navy-800/50 p-4 rounded-xl border border-white/5">
+                                <h5 class="font-semibold text-gray-200 mb-2 text-sm">Existing Process</h5>
+                                <p id="modal-existing" class="text-gray-400 text-sm leading-relaxed"></p>
+                            </section>
+                            <section class="bg-emerald-900/10 p-4 rounded-xl border border-emerald-500/10">
+                                <h5 class="font-semibold text-emerald-400 mb-2 text-sm">Improvement Approach</h5>
+                                <p id="modal-approach" class="text-gray-300 text-sm leading-relaxed"></p>
+                            </section>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column (Sidebar features) -->
+                    <div class="space-y-8">
+                        
+                        <section class="glass-card p-5 rounded-xl">
+                            <h4 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-cyan-400"></i> Dashboard Features
+                            </h4>
+                            <ul id="modal-features" class="space-y-3 text-sm text-gray-300 list-disc pl-4 marker:text-cyan-500">
+                                <!-- Injected via JS -->
+                            </ul>
+                        </section>
+
+                        <section class="glass-card p-5 rounded-xl border-l-4 border-l-emerald-500">
+                            <h4 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-chart-line text-emerald-400"></i> Operational Benefits
+                            </h4>
+                            <p id="modal-value" class="text-sm text-gray-300 leading-relaxed"></p>
+                        </section>
+
+                        <section class="bg-navy-900 p-5 rounded-xl border border-white/5">
+                            <h4 class="text-sm font-bold text-gray-400 mb-2 flex items-center gap-2 uppercase tracking-wide">
+                                <i class="fa-solid fa-forward text-gray-500"></i> Future Development
+                            </h4>
+                            <p id="modal-future" class="text-xs text-gray-500 leading-relaxed"></p>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Project Data Structure
+        const projectsData = [
+            {
+                id: 1,
+                title: "Unit RFU & Breakdown Monitoring",
+                category: "Operational Dashboard",
+                overview: "Dashboard monitoring unit RFU dan BD berdasarkan jam dan cluster operasional untuk memberikan visibilitas penuh terhadap status fleet.",
+                problem: "Monitoring tren RFU (Ready for Use) dan Breakdown per jam membutuhkan penyajian data yang terstruktur agar kondisi unit dan potensi kendala operasional lebih mudah dievaluasi secara cepat.",
+                existing: "Pemantauan status unit dilakukan melalui laporan statis atau rekapan manual yang menyulitkan evaluasi real-time dan identifikasi tren kendala per jam.",
+                approach: "Mengembangkan dashboard dinamis terpusat yang memvisualisasikan data breakdown dan ketersediaan unit secara per jam, diklasifikasikan berdasarkan cluster operasional.",
+                features: [
+                    "KPI total populasi unit, RFU, breakdown, dan physical availability sesuai data sumber.",
+                    "Monitoring status unit per jam.",
+                    "Filter cluster dan shift.",
+                    "Tren ketersediaan unit dan breakdown.",
+                    "Identifikasi area operasional yang memerlukan evaluasi."
+                ],
+                value: "Mendukung evaluasi ketersediaan unit, identifikasi kendala lebih cepat, dan penentuan prioritas tindak lanjut operasional yang lebih tepat sasaran.",
+                future: "Integrasi sistem notifikasi otomatis jika Physical Availability drop di bawah target per shift.",
+                image: "https://imghosting.in/host/altnbu"
+            },
+            {
+                id: 2,
+                title: "RFU Fleet Utilization Monitoring",
+                category: "Production Analytics",
+                overview: "Sistem monitoring terpusat untuk memantau optimalisasi pemanfaatan unit RFU yang tersedia dalam mendukung kegiatan produksi harian.",
+                problem: "Belum tersedia sistem monitoring terpusat yang memudahkan evaluasi apakah unit berstatus RFU sudah dimanfaatkan secara optimal untuk mendukung produksi atau justru idle.",
+                existing: "Evaluasi utilisasi fleet seringkali terjadi setelah shift berakhir, sehingga potensi kehilangan jam kerja operasional akibat unit RFU yang idle sulit dideteksi selama shift berjalan.",
+                approach: "Membuat visualisasi perbandingan langsung antara unit yang berstatus RFU dan unit yang sedang beroperasi pada waktu/shift yang sama untuk menyoroti inefisiensi.",
+                features: [
+                    "Total populasi unit.",
+                    "Monitoring unit RFU dan unit yang sedang beroperasi.",
+                    "Perbandingan status unit per jam.",
+                    "Filter shift dan tanggal.",
+                    "Identifikasi potensi unit RFU yang belum dimanfaatkan secara optimal."
+                ],
+                value: "Membantu tim operasional mengevaluasi pemanfaatan unit yang tersedia dan mendukung optimalisasi sumber daya produksi secara proaktif.",
+                future: "Penambahan metrik Opportunity Cost berdasarkan jumlah jam idle dari unit RFU.",
+                image: "https://imghosting.in/host/86actb"
+            },
+            {
+                id: 3,
+                title: "SIMPER & Mine Permit Monitoring",
+                category: "Administration Control",
+                overview: "Dashboard monitoring administrasi HR/HSE yang menyajikan status pengajuan, kelengkapan dokumen, dan masa berlaku izin operasional karyawan.",
+                problem: "Pemeriksaan status pengajuan, kelengkapan dokumen, dan masa berlaku SIMPER serta Mine Permit sebelumnya membutuhkan penelusuran database internal dengan akses terbatas, memperlambat proses administrasi.",
+                existing: "Karyawan atau departemen harus menghubungi admin secara manual untuk mengecek status dokumen, menyebabkan beban kerja administratif tambahan dan potensi keterlambatan izin.",
+                approach: "Menyediakan dashboard swalayan yang aman (tanpa menampilkan NIK/data rahasia) untuk melacak status dokumen (Open/Close) dan masa berlaku secara transparan.",
+                features: [
+                    "Ringkasan status SIMPER dan Mine Permit.",
+                    "Monitoring dokumen open dan close.",
+                    "Pencarian berdasarkan identitas yang diizinkan.",
+                    "Status kelengkapan persyaratan.",
+                    "Monitoring masa berlaku dan kebutuhan tindak lanjut."
+                ],
+                value: "Mempercepat pemantauan administrasi dan membantu karyawan serta pengguna terkait mengetahui progres pengajuan tanpa harus menelusuri database secara manual.",
+                future: "Ekspor rekap data per departemen untuk pelaporan manajemen HSE bulanan.",
+                image: "https://imghosting.in/host/za50c9"
+            },
+            {
+                id: 4,
+                title: "Timesheet VS Captain Report Comparison",
+                category: "Data Reconciliation",
+                overview: "Dashboard rekonsiliasi untuk membandingkan data produksi dari catatan timesheet operator melawan laporan pengawas (Captain Report).",
+                problem: "Perbedaan antara catatan ritase operator pada timesheet dan laporan Captain yang digunakan tim CCR untuk pelaporan produksi per jam memerlukan proses rekonsiliasi yang lebih mudah ditelusuri.",
+                existing: "Identifikasi selisih dilakukan secara manual dengan menyandingkan dua lembar kertas atau dua sheet Excel terpisah, yang sangat rentan terhadap human error dan memakan waktu.",
+                approach: "Membangun sistem identifikasi deviasi otomatis (data discrepancy identification) yang menyorot varians kuantitatif antara dua sumber data per unit dan per jam.",
+                features: [
+                    "Total timesheet dan total Captain Report.",
+                    "Selisih kuantitatif antara kedua sumber data.",
+                    "Variance dan variance percentage.",
+                    "Detail deviasi per unit dan per jam.",
+                    "Filter tanggal, bulan, shift, dan unit.",
+                    "Identifikasi data yang membutuhkan verifikasi."
+                ],
+                value: "Mendukung rekonsiliasi data produksi, meningkatkan konsistensi pelaporan, dan mempermudah penelusuran selisih dengan pihak terkait untuk validasi.",
+                future: "Otomatisasi pengiriman laporan harian mengenai daftar unit dengan variance di atas ambang batas toleransi (tolerated threshold).",
+                image: "https://imghosting.in/host/1haf1r"
+            },
+            {
+                id: 5,
+                title: "HM Performance & Timesheet Compliance",
+                category: "Process Improvement",
+                overview: "Dashboard monitoring kepatuhan administrasi untuk melacak ketepatan waktu pengumpulan dokumen timesheet Hour Meter (HM) harian.",
+                problem: "Keterlambatan pengumpulan timesheet HM operator dapat memengaruhi ketepatan waktu penginputan data dan proses administrasi (cost & production) pada hari berikutnya.",
+                existing: "Admin kesulitan melacak operator mana yang belum mengumpulkan timesheet pada akhir shift, sehingga penagihan dokumen dilakukan secara acak atau reaktif keesokan harinya.",
+                approach: "Membuat alat monitoring visual yang memisahkan status kepatuhan pengumpulan (tepat waktu vs terlambat) untuk mengarahkan prioritas penagihan admin secara akurat.",
+                features: [
+                    "Total catatan pengumpulan timesheet.",
+                    "Monitoring pengumpulan tepat waktu dan terlambat.",
+                    "Daftar unit dan operator yang membutuhkan tindak lanjut.",
+                    "Durasi atau status keterlambatan jika didukung data.",
+                    "Pencarian dan filter data.",
+                    "Monitoring kepatuhan target pengumpulan untuk pemrosesan H+1."
+                ],
+                value: "Mendukung peningkatan disiplin pengumpulan timesheet, mempercepat identifikasi keterlambatan, dan membantu admin memprioritaskan tindak lanjut operasional.",
+                future: "Gamifikasi sederhana (Papan Peringkat Kepatuhan) untuk departemen operasional guna memotivasi pengumpulan tepat waktu.",
+                image: "https://imghosting.in/host/yr378x"
+            }
+        ];
+
+        function renderProjects() {
+            const grid = document.getElementById('project-grid');
+            let html = '';
+
+            projectsData.forEach((project, index) => {
+                const delay = index * 100;
+                html += `
+                <div class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: ${delay}ms">
+                    <div class="h-48 overflow-hidden relative border-b border-white/10 bg-navy-800">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 to-transparent z-10 opacity-60"></div>
+                        <img src="${project.image}" alt="${project.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/0B1221/06b6d4?text=Project+0${project.id}'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100 relative z-0">
+                        <div class="absolute top-4 left-4 z-20">
+                            <span class="px-2 py-1 text-[10px] uppercase font-bold tracking-wider rounded bg-charcoal/80 text-cyan-400 border border-cyan-500/30 backdrop-blur">
+                                Project 0${project.id}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow relative z-10">
+                        <div class="text-xs font-semibold text-emerald-400 mb-2">${project.category}</div>
+                        <h4 class="text-xl font-bold text-white mb-3 leading-tight">${project.title}</h4>
+                        <p class="text-gray-400 text-sm mb-6 flex-grow line-clamp-3">${project.problem}</p>
+                        
+                        <button onclick="openModal(${project.id})" class="mt-auto inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors w-max group/btn">
+                            View Case Study 
+                            <i class="fa-solid fa-arrow-right ml-2 transform group-hover/btn:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+                `;
+            });
+
+            grid.innerHTML = html;
+        }
+
+        const modal = document.getElementById('case-study-modal');
+        const modalPanel = document.getElementById('modal-panel');
+
+        function openModal(id) {
+            const project = projectsData.find(p => p.id === id);
+            if (!project) return;
+
+            // Populate Data
+            document.getElementById('modal-category').innerText = `Project 0${project.id} — ${project.category}`;
+            document.getElementById('modal-title').innerText = project.title;
+            document.getElementById('modal-image').src = project.image;
+            document.getElementById('modal-overview').innerText = project.overview;
+            document.getElementById('modal-problem').innerText = project.problem;
+            document.getElementById('modal-existing').innerText = project.existing;
+            document.getElementById('modal-approach').innerText = project.approach;
+            document.getElementById('modal-value').innerText = project.value;
+            document.getElementById('modal-future').innerText = project.future;
+
+            const featuresList = document.getElementById('modal-features');
+            featuresList.innerHTML = project.features.map(f => `<li>${f}</li>`).join('');
+
+            // Show Modal with Animation
+            modal.classList.remove('hidden');
+            modal.style.display = 'flex';
+            // trigger reflow
+            void modal.offsetWidth;
+            
+            modal.classList.add('opacity-100');
+            modalPanel.classList.remove('scale-95');
+            modalPanel.classList.add('scale-100');
+            
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            modal.classList.remove('opacity-100');
+            modalPanel.classList.remove('scale-100');
+            modalPanel.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300); // match transition duration
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                const icon = btn.querySelector('i');
+                if (menu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+
+            // Close mobile menu on click
+            const mobileLinks = menu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    btn.querySelector('i').classList.remove('fa-times');
+                    btn.querySelector('i').classList.add('fa-bars');
+                });
+            });
+
+            // Navbar background opacity on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('bg-navy-900/90', 'shadow-lg');
+                    navbar.classList.remove('bg-transparent');
+                } else {
+                    navbar.classList.remove('bg-navy-900/90', 'shadow-lg');
+                    navbar.classList.add('bg-transparent');
+                }
+            });
+            
+            // Trigger scroll initially to set correct nav state
+            window.dispatchEvent(new Event('scroll'));
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
